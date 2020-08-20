@@ -9,17 +9,17 @@
 
 <body>
     <h1>Index Page</h1>
-    <!-- <ul>
+    <ul>
         <?php foreach ($tasks as $task) : ?>
             <li>
-                <?php if ($task->isCompleted()) : ?>
-                    <strike><?= $task->getDescription(); ?></strike>
+                <?php if ($task->completed) : ?>
+                    <strike><?= $task->description; ?></strike>
                 <?php else : ?>
-                    <?= $task->getDescription(); ?>
+                    <?= $task->description; ?>
                 <?php endif; ?>
             </li>
         <?php endforeach ?>
-    </ul> -->
+    </ul>
 </body>
 
 </html>

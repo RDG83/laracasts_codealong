@@ -1,50 +1,11 @@
 <?php
 
-// class Task
-// {
-//     protected string $description;
-//     protected bool $completed = false;
+require "Task.php";
 
-//     public function __construct(string $description)
-//     {
-//         $this->description = $description;
-//     }
+require "functions.php";
 
-//     public function complete(): void
-//     {
-//         $this->completed = true;
-//     }
+$pdo = connectToDb();
 
-//     public function getDescription(): string
-//     {
-//         return $this->description;
-//     }
-
-//     public function isCompleted(): bool
-//     {
-//         return $this->completed;
-//     }
-// }
-
-// $tasks = [
-//     new task("make sandwich"),
-//     new task("clean room"),
-//     new task("take out trash")
-// ];
-
-try {
-    $pdo = new PDO("mysql:host=localhost;dbname=mytodo", "root", "");
-} catch (PDOException $e) {
-    die("Unable to connect to the database");
-}
-
-$statement = $pdo->prepare("SELECT * FROM todos");
-
-$statement->execute();
-
-echo "<pre>";
-var_dump($statement->fetchAll(PDO::FETCH_OBJ));
-echo "</pre>";
-
+$tasks = fetchAllTasks($pdo);
 
 require "index.view.php";
