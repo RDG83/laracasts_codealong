@@ -9,6 +9,21 @@
 
 <body>
     <h1>Index Page</h1>
+    <ul>
+        <?php foreach ($tasks as $task) : ?>
+
+            <?php if ($task->isCompleted()) : ?>
+                <strike>
+                <?php endif; ?>
+
+                <li><?= $task->getDescription(); ?></li>
+
+                <?php if ($task->isCompleted()) : ?>
+                </strike>
+            <?php endif; ?>
+
+        <?php endforeach ?>
+    </ul>
 </body>
 
 </html>

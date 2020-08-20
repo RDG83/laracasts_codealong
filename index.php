@@ -14,15 +14,23 @@ class Task
     {
         $this->completed = true;
     }
+
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    public function isCompleted(): bool
+    {
+        return $this->completed;
+    }
 }
 
-$task = new Task("go to the store");
-
-$task->complete();
-
-echo "<pre>";
-var_dump($task);
-echo "</pre>";
+$tasks = [
+    new task("make sandwich"),
+    new task("clean room"),
+    new task("take out trash")
+];
 
 
 require "index.view.php";
