@@ -11,17 +11,15 @@
     <h1>Index Page</h1>
     <ul>
         <?php foreach ($tasks as $task) : ?>
-
-            <?php if ($task->isCompleted()) : ?>
-                <strike>
-                <?php endif; ?>
-
-                <li><?= $task->getDescription(); ?></li>
-
+            <li>
                 <?php if ($task->isCompleted()) : ?>
-                </strike>
-            <?php endif; ?>
-
+                    <strike>
+                        <?= $task->getDescription(); ?>
+                    </strike>
+                <?php else : ?>
+                    <?= $task->getDescription(); ?>
+                <?php endif; ?>
+            </li>
         <?php endforeach ?>
     </ul>
 </body>

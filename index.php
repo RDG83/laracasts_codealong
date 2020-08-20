@@ -32,5 +32,7 @@ $tasks = [
     new task("take out trash")
 ];
 
+$tasks[1]->complete();
+
 
 require "index.view.php";
