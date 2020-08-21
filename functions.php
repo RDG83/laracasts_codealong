@@ -1,13 +1,6 @@
 <?php
 
-function connectToDb()
-{
-    try {
-        return new PDO("mysql:host=localhost;dbname=mytodo", "root", "");
-    } catch (PDOException $e) {
-        die("Unable to connect to the database: " . $e->getMessage());
-    }
-}
+
 
 function fetchAllTasks($pdo)
 {
