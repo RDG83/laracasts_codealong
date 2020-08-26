@@ -3,6 +3,8 @@
 
 $query = require "core/bootstrap.php";
 
-$tasks = $query->selectAll("todos");
+$router = new Router;
 
-require "views/index.view.php";
+require "routes.php";
+
+require $router->direct(trim($_SERVER["REQUEST_URI"], "/"));
