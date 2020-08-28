@@ -2,8 +2,6 @@
 
 <h1>Index Page</h1>
 
-<?php require "partials/nav.php"; ?>
-
 <ul>
     <?php foreach ($tasks as $task) : ?>
         <li>
