@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php require "partials/header.php"; ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<h1>Contact us</h1>
 
-<body>
-    <h1>contact us</h1>
-</body>
+<?php require "partials/nav.php"; ?>
 
-</html>
+<?php require "partials/footer.php"; ?>
