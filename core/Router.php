@@ -2,7 +2,10 @@
 
 class Router
 {
-    protected $routes = [];
+    protected $routes = [
+        "GET" => [],
+        "POST" => []
+    ];
 
     public static function load($file)
     {
@@ -13,15 +16,21 @@ class Router
         return $router;
     }
 
-    public function define($routes): void
+    public function get($uri, $controller): void
     {
-        $this->routes = $routes;
+        $this->routes["GET"][$uri] = $controller;
     }
 
-    public function direct($uri): string
+    public function post($uri, $controller): void
     {
-        if (array_key_exists($uri, $this->routes)) {
-            return $this->routes[$uri];
+        $this->routes["POST"][$uri] = $controller;
+    }
+
+    public function direct($uri, $method): string
+    {
+        if (array_key_exists($uri, $this->routes[$method])) {
+
+            return $this->routes[$method][$uri];
         }
 
         throw new Exception("The requested URI does not exist!");

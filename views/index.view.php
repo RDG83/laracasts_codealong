@@ -2,7 +2,14 @@
 
 <h1>Index Page</h1>
 
-<ul>
+<form action="/names" method="POST">
+
+    <input type="text" name="name">
+    <button type="submit">Submit</button>
+</form>
+
+
+<!-- <ul>
     <?php foreach ($tasks as $task) : ?>
         <li>
             <?php if ($task->completed) : ?>
@@ -12,6 +19,6 @@
             <?php endif; ?>
         </li>
     <?php endforeach ?>
-</ul>
+</ul> -->
 
 <?php require "partials/footer.php"; ?>
