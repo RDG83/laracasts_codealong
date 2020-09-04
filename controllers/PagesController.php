@@ -4,9 +4,7 @@ class PagesController
 {
     public function home()
     {
-        $users = App::get("database")->selectAll("users");
-
-        return view("index", compact("users"));
+        return view("home");
     }
 
     public function about()
