@@ -26,13 +26,28 @@ class Router
         $this->routes["POST"][$uri] = $controller;
     }
 
-    public function direct($uri, $method): string
+    public function direct($uri, $method)
     {
         if (array_key_exists($uri, $this->routes[$method])) {
 
-            return $this->routes[$method][$uri];
+            return $this->callAction(
+                ...explode("@", $this->routes[$method][$uri])
+            );
         }
 
         throw new Exception("The requested URI does not exist!");
+    }
+
+    protected function callAction($controller, $action)
+    {
+        $controller = new $controller;
+
+        if (!method_exists($controller, $action)) {
+            throw new Exception(
+                "This {$action} is not found on this controller {$controller}"
+            );
+        }
+
+        return $controller->$action();
     }
 }
