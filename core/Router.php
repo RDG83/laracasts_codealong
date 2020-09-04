@@ -1,5 +1,9 @@
 <?php
 
+namespace App\core;
+
+use Exception;
+
 class Router
 {
     protected $routes = [
@@ -16,15 +20,18 @@ class Router
         return $router;
     }
 
+
     public function get($uri, $controller): void
     {
         $this->routes["GET"][$uri] = $controller;
     }
 
+
     public function post($uri, $controller): void
     {
         $this->routes["POST"][$uri] = $controller;
     }
+
 
     public function direct($uri, $method)
     {
@@ -38,8 +45,11 @@ class Router
         throw new Exception("The requested URI does not exist!");
     }
 
+
     protected function callAction($controller, $action)
     {
+        $controller = "App\controllers\\{$controller}";
+
         $controller = new $controller;
 
         if (!method_exists($controller, $action)) {
